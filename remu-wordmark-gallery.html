@@ -240,6 +240,41 @@
       border-top: 1px solid var(--line);
     }
 
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 34px;
+    }
+
+    .section-head .section-nav {
+      justify-content: flex-end;
+      margin: 0;
+    }
+
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 18px;
+      border: 1px solid rgba(16, 19, 16, .18);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, .52);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: .12em;
+      backdrop-filter: blur(14px);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, .82);
+      border-color: rgba(16, 19, 16, .32);
+    }
+
     .section-head {
       display: flex;
       justify-content: space-between;
@@ -430,6 +465,7 @@
       .note { text-align: left; }
       .gallery, .mock-gallery { grid-template-columns: 1fr; }
       .section-head { display: grid; align-items: start; }
+      .section-head .section-nav { justify-content: flex-start; }
       .stage { min-height: 140px; padding: 22px 16px; }
       .mock-stage { min-height: 260px; }
       .box-logo > div { font-size: 25px; }
@@ -445,7 +481,7 @@
       <p class="note">商標済みブランドの「字間が広い大文字REMU」「カタカナ併記」「商品名縦並び」に寄らないよう、混在ケース・小文字・流線感・モード感を中心に再構成しました。</p>
     </header>
 
-    <section class="gallery" aria-label="ReMu wordmark selection">
+    <section id="logo" class="gallery" aria-label="ReMu wordmark selection">
       <article class="card">
         <div class="number"><span>01</span><span class="label">selected / refined serif</span></div>
         <div class="stage"><div class="v01">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div>
@@ -525,11 +561,22 @@
       </article>
     </section>
 
-    <section class="product-section" aria-label="Foam roller product mockups">
+    <nav class="section-nav" aria-label="商品イメージへの移動">
+      <a class="nav-button" href="#foam-roller">フォームローラー</a>
+      <a class="nav-button" href="#pillow">枕</a>
+      <a class="nav-button" href="#supplement">サプリ</a>
+    </nav>
+
+    <section id="foam-roller" class="product-section" aria-label="Foam roller product mockups">
       <div class="section-head">
         <h2>フォームローラー</h2>
-        <p class="note">白いフォームローラーと白箱の物販イメージ。箱にはロゴ文字のみを配置し、各番号ごとの印象を比較できます。</p>
+        <nav class="section-nav" aria-label="セクション移動">
+          <a class="nav-button" href="#logo">ロゴ</a>
+          <a class="nav-button" href="#pillow">枕</a>
+          <a class="nav-button" href="#supplement">サプリ</a>
+        </nav>
       </div>
+      <p class="note">白いフォームローラーと白箱の物販イメージ。箱にはロゴ文字のみを配置し、各番号ごとの印象を比較できます。</p>
 
       <section class="mock-gallery">
         <article class="product-card">
@@ -664,11 +711,16 @@
       </section>
     </section>
 
-    <section class="product-section" aria-label="ReMu Pillow product mockups">
+    <section id="pillow" class="product-section" aria-label="ReMu Pillow product mockups">
       <div class="section-head">
         <h2>ReMu Pillow</h2>
-        <p class="note">黒箱と白い枕だけの物販イメージ。箱には各ロゴ文字だけを白で配置し、上質な睡眠ケア商品の印象を比較できます。</p>
+        <nav class="section-nav" aria-label="セクション移動">
+          <a class="nav-button" href="#logo">ロゴ</a>
+          <a class="nav-button" href="#foam-roller">フォームローラー</a>
+          <a class="nav-button" href="#supplement">サプリ</a>
+        </nav>
       </div>
+      <p class="note">黒箱と白い枕だけの物販イメージ。箱には各ロゴ文字だけを白で配置し、上質な睡眠ケア商品の印象を比較できます。</p>
 
       <section class="mock-gallery">
         <article class="product-card">
@@ -777,11 +829,16 @@
       </section>
     </section>
 
-    <section class="product-section" aria-label="ReMu supplement product mockups">
+    <section id="supplement" class="product-section" aria-label="ReMu supplement product mockups">
       <div class="section-head">
         <h2>ReMu サプリ</h2>
-        <p class="note">睡眠サポートを想定した白いボトル型サプリ。水色ロゴと月モチーフで、深い休息の印象を比較できます。</p>
+        <nav class="section-nav" aria-label="セクション移動">
+          <a class="nav-button" href="#logo">ロゴ</a>
+          <a class="nav-button" href="#foam-roller">フォームローラー</a>
+          <a class="nav-button" href="#pillow">枕</a>
+        </nav>
       </div>
+      <p class="note">睡眠サポートを想定した白いボトル型サプリ。水色ロゴのみで、深い休息の印象を比較できます。</p>
 
       <section class="mock-gallery">
         <article class="product-card">
