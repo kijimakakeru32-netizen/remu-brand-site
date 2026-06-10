@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReMu Wordmark Selection</title>
+  <style>
+    :root {
+      --ink: #101310;
+      --paper: #f8f5ef;
+      --panel: rgba(255, 255, 255, .62);
+      --line: rgba(16, 19, 16, .13);
+      --soft: rgba(16, 19, 16, .6);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 12%, rgba(255,255,255,.85), transparent 28%),
+        linear-gradient(135deg, #f8f5ef 0%, #ece4d8 100%);
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    main {
+      width: min(1400px, calc(100vw - 36px));
+      margin: 0 auto;
+      padding: 38px 0 72px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr minmax(320px, 560px);
+      gap: 28px;
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 22px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 54px);
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+
+    .note {
+      margin: 0;
+      color: var(--soft);
+      line-height: 1.8;
+      letter-spacing: .06em;
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 238px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+    }
+
+    .number {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding: 11px 14px;
+      color: var(--soft);
+      font-size: 12px;
+      letter-spacing: .14em;
+    }
+
+    .label { text-transform: uppercase; }
+
+    .stage {
+      min-height: 160px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .caption {
+      min-height: 43px;
+      border-top: 1px solid var(--line);
+      padding: 11px 14px;
+      color: var(--soft);
+      font-size: 12px;
+      letter-spacing: .08em;
+      line-height: 1.55;
+    }
+
+    .sub {
+      display: block;
+      margin-top: 14px;
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: .24em;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+
+    .small-m {
+      display: inline-block;
+      font-size: .86em;
+      vertical-align: .02em;
+    }
+
+    .small-m.lowered {
+      transform: translateY(.055em);
+    }
+
+    .lowercase-drop {
+      display: inline-block;
+      transform: translateY(.04em);
+    }
+
+    .round-m {
+      display: inline-block;
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 300;
+      font-size: .9em;
+      letter-spacing: .01em;
+      vertical-align: .01em;
+    }
+
+    .bold-round-m {
+      display: inline-block;
+      font-family: "Arial Rounded MT Bold", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 700;
+      font-size: .82em;
+      letter-spacing: -.015em;
+      vertical-align: .02em;
+    }
+
+    .under::after {
+      content: "";
+      display: block;
+      width: min(260px, 72%);
+      height: 1px;
+      margin: 18px auto 0;
+      background: currentColor;
+      opacity: .48;
+    }
+
+    .slash {
+      display: inline-flex;
+      align-items: center;
+      gap: .16em;
+    }
+
+    .slash::after {
+      content: "";
+      width: .5em;
+      height: 1px;
+      margin-left: .03em;
+      background: currentColor;
+      transform: rotate(-58deg) translateY(-.08em);
+      transform-origin: center;
+      opacity: .8;
+    }
+
+    .soft-dot::after {
+      content: "";
+      display: inline-block;
+      width: .12em;
+      height: .12em;
+      margin-left: .16em;
+      border-radius: 999px;
+      background: currentColor;
+      vertical-align: .1em;
+    }
+
+    .triple-m {
+      display: inline-grid;
+      grid-template-columns: repeat(3, .08em);
+      gap: .075em;
+      height: .72em;
+      margin: 0 .06em 0 .08em;
+      vertical-align: -.015em;
+    }
+
+    .triple-m i {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: currentColor;
+      border-radius: 99px;
+      transform-origin: bottom center;
+    }
+
+    .triple-m i:nth-child(2) {
+      height: .86em;
+      align-self: end;
+    }
+
+    .v01 { font-family: "Didot", "Bodoni 72", "Baskerville", serif; font-size: 90px; font-weight: 300; letter-spacing: .02em; }
+    .v02 { font-family: "Optima", "Avenir Next", sans-serif; font-size: 86px; font-weight: 300; letter-spacing: .08em; }
+    .v03 { font-family: "Baskerville", "Libre Baskerville", Georgia, serif; font-size: 90px; font-style: italic; font-weight: 300; letter-spacing: .025em; }
+    .v04 { font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; font-size: 80px; font-weight: 200; letter-spacing: .07em; }
+    .v05 { font-family: "Futura", "Avenir Next", sans-serif; font-size: 82px; font-weight: 300; letter-spacing: .075em; }
+    .v06 { font-family: "Gill Sans", "Avenir Next", sans-serif; font-size: 86px; font-weight: 300; letter-spacing: .09em; }
+    .v07 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 80px; font-weight: 100; letter-spacing: .075em; }
+    .v08 { font-family: "Snell Roundhand", "Zapfino", cursive; font-size: 88px; font-weight: 400; letter-spacing: .015em; }
+    .v09 { font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; font-size: 90px; font-weight: 400; letter-spacing: .015em; }
+    .v10 { font-family: "Optima", "Gill Sans", sans-serif; font-size: 88px; font-weight: 400; letter-spacing: .035em; }
+    .v11 { font-family: "Didot", "Bodoni 72", serif; font-size: 96px; font-weight: 400; letter-spacing: -.005em; }
+    .v12 { font-family: "Optima", "Avenir Next", sans-serif; font-size: 88px; font-weight: 300; letter-spacing: .025em; }
+    .v13 { font-family: "Didot", "Bodoni 72", "Times New Roman", serif; font-size: 94px; font-weight: 300; letter-spacing: .055em; }
+    .v14 { font-family: "Futura", "Avenir Next", sans-serif; font-size: 78px; font-weight: 500; letter-spacing: .08em; }
+    .v15 { font-family: "Gill Sans", "Avenir Next", sans-serif; font-size: 86px; font-weight: 300; letter-spacing: .04em; }
+    .v16 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 88px; font-weight: 300; letter-spacing: .02em; }
+    .v17 { font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; font-size: 84px; font-weight: 200; letter-spacing: .055em; }
+    .v18 { font-family: "Bodoni 72", "Didot", serif; font-size: 92px; font-weight: 300; letter-spacing: .025em; }
+    .v19 { font-family: "Optima", "Gill Sans", sans-serif; font-size: 88px; font-weight: 300; letter-spacing: .018em; }
+    .v20 { font-family: "Optima", "Avenir Next", sans-serif; font-size: 84px; font-weight: 300; letter-spacing: .04em; }
+
+    .mu-light span:last-child { font-weight: 200; opacity: .78; }
+    .re-soft span:first-child { font-weight: 300; }
+    .re-soft span:last-child { font-weight: 500; }
+
+    .product-section {
+      margin-top: 72px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 400;
+      letter-spacing: .08em;
+    }
+
+    .mock-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      min-height: 360px;
+      background: rgba(255, 255, 255, .66);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      box-shadow: 0 24px 70px rgba(16, 19, 16, .07);
+    }
+
+    .mock-stage {
+      min-height: 286px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.04)),
+        url("./product-mockups/foam-roller-blank-base.png") center / cover no-repeat;
+    }
+
+    .mock-stage::after {
+      display: none;
+    }
+
+    .box {
+      position: absolute;
+      left: 7.5%;
+      top: 21.5%;
+      width: 50%;
+      height: 25%;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      transform: none;
+      z-index: 2;
+    }
+
+    .box::before {
+      display: none;
+    }
+
+    .box::after {
+      display: none;
+    }
+
+    .box-logo {
+      position: absolute;
+      left: 13%;
+      top: 42%;
+      width: 46%;
+      color: var(--ink);
+      text-align: center;
+      z-index: 1;
+      transform: translateZ(1px);
+    }
+
+    .box-logo > div {
+      font-size: 23px;
+      line-height: .95;
+      white-space: nowrap;
+      opacity: .9;
+    }
+
+    .box-logo .sub {
+      margin-top: 7px;
+      font-size: 4.8px;
+      letter-spacing: .23em;
+      line-height: 1;
+    }
+
+    .roller {
+      display: none;
+    }
+
+    .roller::before {
+      display: none;
+    }
+
+    .roller::after {
+      display: none;
+    }
+
+    .product-name {
+      display: none;
+    }
+
+    .product-caption {
+      min-height: 43px;
+      border-top: 1px solid var(--line);
+      padding: 11px 14px;
+      color: var(--soft);
+      font-size: 12px;
+      letter-spacing: .08em;
+      line-height: 1.55;
+    }
+
+    .pillow-stage {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.02)),
+        url("./product-mockups/pillow-blank-base.png") center / cover no-repeat;
+    }
+
+    .pillow-stage .box {
+      left: 6%;
+      top: 19%;
+      width: 62%;
+      height: 32%;
+    }
+
+    .pillow-stage .box-logo {
+      left: 14%;
+      top: 42%;
+      width: 38%;
+      color: #cdb990;
+      opacity: .92;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, .16);
+    }
+
+    .pillow-stage .box-logo > div {
+      font-size: 23px;
+      opacity: .92;
+    }
+
+    .pillow-stage .box-logo .sub {
+      color: #cdb990;
+      opacity: .9;
+    }
+
+    .supplement-stage {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.02)),
+        url("./product-mockups/supplement-blank-base.png") center / cover no-repeat;
+    }
+
+    .supplement-label {
+      position: absolute;
+      left: 37%;
+      top: 43%;
+      width: 25%;
+      min-height: 25%;
+      display: grid;
+      justify-items: center;
+      align-content: start;
+      gap: 0;
+      color: #2ca7d8;
+      text-align: center;
+      z-index: 2;
+      opacity: .92;
+    }
+
+    .supplement-label > div {
+      font-size: 21px;
+      line-height: .95;
+      white-space: nowrap;
+    }
+
+    .supplement-label .sub {
+      color: #2ca7d8;
+      margin-top: 6px;
+      font-size: 4.6px;
+      letter-spacing: .2em;
+    }
+
+
+    @media (max-width: 820px) {
+      header { grid-template-columns: 1fr; align-items: start; }
+      .note { text-align: left; }
+      .gallery, .mock-gallery { grid-template-columns: 1fr; }
+      .section-head { display: grid; align-items: start; }
+      .stage { min-height: 140px; padding: 22px 16px; }
+      .mock-stage { min-height: 260px; }
+      .box-logo > div { font-size: 25px; }
+      .v01, .v03, .v08, .v11, .v13, .v15, .v17, .v19 { font-size: 68px; }
+      .v02, .v04, .v05, .v06, .v07, .v09, .v10, .v12, .v14, .v16, .v18, .v20 { font-size: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>ReMu Wordmark Selection</h1>
+      <p class="note">商標済みブランドの「字間が広い大文字REMU」「カタカナ併記」「商品名縦並び」に寄らないよう、混在ケース・小文字・流線感・モード感を中心に再構成しました。</p>
+    </header>
+
+    <section class="gallery" aria-label="ReMu wordmark selection">
+      <article class="card">
+        <div class="number"><span>01</span><span class="label">selected / refined serif</span></div>
+        <div class="stage"><div class="v01">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div>
+        <div class="caption">元01を軽量化。線の重さを落として、上品で抜けのある印象に調整。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>02</span><span class="label">selected / feminine italic</span></div>
+        <div class="stage"><div class="v03">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div>
+        <div class="caption">元04を軽量化。曲線は残しつつ、重たさを減らした美容寄り案。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>03</span><span class="label">06 brush up / mixed case</span></div>
+        <div class="stage"><div class="v04">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+        <div class="caption">元06のミニマル感を残し、Mだけを少し小さく調整。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>04</span><span class="label">selected / gentle sans</span></div>
+        <div class="stage"><div class="v06">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+        <div class="caption">元11を残した清潔な案。Mだけを少し小さく調整。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>05</span><span class="label">14 brush up / lowercase</span></div>
+        <div class="stage"><div class="v07">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+        <div class="caption">元14をReMu表記へ。Mだけを少し小さく調整。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>06</span><span class="label">selected / signature</span></div>
+        <div class="stage"><div class="v08">ReMu<span class="sub">mind body reset</span></div></div>
+        <div class="caption">元15を残したサイン風。限定品・サロン専売ラインに合う。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>07</span><span class="label">new / compact luxury sans</span></div>
+        <div class="stage"><div class="v09">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+        <div class="caption">Mを大文字のまま、Rより少し小さく調整。コンパクトで現代的な案。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>08</span><span class="label">new / alo sleek</span></div>
+        <div class="stage"><div class="v14">Remu<span class="sub">mind body reset</span></div></div>
+        <div class="caption">Mを小文字に調整。alo方向のスポーティで洗練された案。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>08b</span><span class="label">alo sleek / lowercase</span></div>
+        <div class="stage"><div class="v14">remu<span class="sub">mind body reset</span></div></div>
+        <div class="caption">14を参考に、すべて小文字にした派生版。よりalo寄りで軽い印象。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>09</span><span class="label">new / light technical</span></div>
+        <div class="stage"><div class="v17">Remu<span class="sub">mind body reset</span></div></div>
+        <div class="caption">mを通常の小文字に変更。機能性と清潔感を重視。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>09b</span><span class="label">light technical / small M</span></div>
+        <div class="stage"><div class="v17">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+        <div class="caption">17を参考に、Mを大文字のまま少し小さく調整した派生版。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>10</span><span class="label">new / lowercase mark tone</span></div>
+        <div class="stage"><div class="v20">Remu<span class="sub">mind body reset</span></div></div>
+        <div class="caption">Mを小文字に変更。自然体でやわらかい、ブランド名が読みやすい案。</div>
+      </article>
+
+      <article class="card">
+        <div class="number"><span>10b</span><span class="label">lowercase tone / small M</span></div>
+        <div class="stage"><div class="v20">Re<span class="small-m">M</span>u<span class="sub">mind body reset</span></div></div>
+        <div class="caption">20を参考に、Mを大文字のまま少し小さく調整した派生版。</div>
+      </article>
+    </section>
+
+    <section class="product-section" aria-label="Foam roller product mockups">
+      <div class="section-head">
+        <h2>フォームローラー</h2>
+        <p class="note">白いフォームローラーと白箱の物販イメージ。箱にはロゴ文字のみを配置し、各番号ごとの印象を比較できます。</p>
+      </div>
+
+      <section class="mock-gallery">
+        <article class="product-card">
+          <div class="number"><span>01</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v01">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">01のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>02</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v03">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">02のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>03</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v04">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">03のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>04</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v06">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">04のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>05</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v07">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">05のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>06</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v08">ReMu<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">06のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>07</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v09">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">07のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>08</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v14">Remu<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">08のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>08b</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v14">remu<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">08bのロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>09</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v17">Remu<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">09のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>09b</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v17">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">09bのロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>10</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v20">Remu<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">10のロゴを白箱へ配置したイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>10b</span><span class="label">foam roller</span></div>
+          <div class="mock-stage">
+            <div class="box"><div class="box-logo"><div class="v20">Re<span class="small-m">M</span>u<span class="sub">mind body reset</span></div></div></div>
+            <div class="roller"></div>
+            <div class="product-name">foam roller</div>
+          </div>
+          <div class="product-caption">10bのロゴを白箱へ配置したイメージ。</div>
+        </article>
+      </section>
+    </section>
+
+    <section class="product-section" aria-label="ReMu Pillow product mockups">
+      <div class="section-head">
+        <h2>ReMu Pillow</h2>
+        <p class="note">黒箱と白い枕だけの物販イメージ。箱には各ロゴ文字だけを白で配置し、上質な睡眠ケア商品の印象を比較できます。</p>
+      </div>
+
+      <section class="mock-gallery">
+        <article class="product-card">
+          <div class="number"><span>01</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v01">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">01のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>02</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v03">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">02のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>03</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v04">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">03のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>04</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v06">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">04のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>05</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v07">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">05のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>06</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v08">ReMu<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">06のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>07</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v09">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">07のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>08</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v14">Remu<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">08のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>08b</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v14">remu<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">08bのロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>09</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v17">Remu<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">09のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>09b</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v17">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">09bのロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>10</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v20">Remu<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">10のロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>10b</span><span class="label">remu pillow</span></div>
+          <div class="mock-stage pillow-stage">
+            <div class="box"><div class="box-logo"><div class="v20">Re<span class="small-m">M</span>u<span class="sub">mind body reset</span></div></div></div>
+          </div>
+          <div class="product-caption">10bのロゴを黒箱へ配置したReMu Pillowイメージ。</div>
+        </article>
+      </section>
+    </section>
+
+    <section class="product-section" aria-label="ReMu supplement product mockups">
+      <div class="section-head">
+        <h2>ReMu サプリ</h2>
+        <p class="note">睡眠サポートを想定した白いボトル型サプリ。水色ロゴと月モチーフで、深い休息の印象を比較できます。</p>
+      </div>
+
+      <section class="mock-gallery">
+        <article class="product-card">
+          <div class="number"><span>01</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v01">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">01のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>02</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v03">R<span class="lowercase-drop">e</span><span class="small-m lowered">M</span><span class="lowercase-drop">u</span><span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">02のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>03</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v04">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">03のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>04</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v06">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">04のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>05</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v07">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">05のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>06</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v08">ReMu<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">06のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>07</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v09">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">07のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>08</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v14">Remu<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">08のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>08b</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v14">remu<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">08bのロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>09</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v17">Remu<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">09のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>09b</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v17">Re<span class="small-m lowered">M</span>u<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">09bのロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>10</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v20">Remu<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">10のロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+
+        <article class="product-card">
+          <div class="number"><span>10b</span><span class="label">remu supplement</span></div>
+          <div class="mock-stage supplement-stage">
+            <div class="supplement-label"><div class="v20">Re<span class="small-m">M</span>u<span class="sub">mind body reset</span></div></div>
+          </div>
+          <div class="product-caption">10bのロゴを白ボトルへ配置したReMu サプリイメージ。</div>
+        </article>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

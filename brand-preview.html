@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReMu Logo Preview</title>
+  <style>
+    :root {
+      --ink: #1f2421;
+      --bone: #f8f5ef;
+      --gold: #b9a37b;
+      --mist: #e7e0d4;
+      --sage: #8c9388;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, var(--bone), #ebe4d8);
+      color: var(--ink);
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    }
+    main {
+      width: min(1120px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+    header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", Didot, Georgia, serif;
+      font-size: clamp(48px, 8vw, 104px);
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+    p {
+      margin: 0;
+      max-width: 720px;
+      color: #555852;
+      line-height: 1.9;
+      letter-spacing: .08em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    figure {
+      margin: 0;
+      background: rgba(255,255,255,.48);
+      border: 1px solid rgba(31,36,33,.08);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(31,36,33,.08);
+    }
+    figure.dark { background: var(--ink); }
+    .media {
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      padding: 32px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .mark img {
+      width: min(72%, 360px);
+    }
+    figcaption {
+      border-top: 1px solid rgba(31,36,33,.08);
+      padding: 14px 18px;
+      color: #6b6d67;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .dark figcaption {
+      border-top-color: rgba(248,245,239,.16);
+      color: #d9d2c4;
+    }
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .swatch {
+      min-height: 92px;
+      border-radius: 8px;
+      border: 1px solid rgba(31,36,33,.08);
+      padding: 12px;
+      display: flex;
+      align-items: flex-end;
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+    @media (max-width: 760px) {
+      main { padding-top: 34px; }
+      .grid, .palette { grid-template-columns: 1fr; }
+      .media { min-height: 220px; padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>ReMu</h1>
+      <p>Reset Mind &amp; Body. 余計な緊張やノイズをほどき、本来の回復力へ戻るためのウェルネスブランド。</p>
+    </header>
+    <section class="grid" aria-label="Logo variations">
+      <figure>
+        <div class="media"><img src="./remu-logo-primary.svg" alt="ReMu primary logo"></div>
+        <figcaption>Primary horizontal</figcaption>
+      </figure>
+      <figure>
+        <div class="media"><img src="./remu-logo-stacked.svg" alt="ReMu stacked logo"></div>
+        <figcaption>Stacked lockup</figcaption>
+      </figure>
+      <figure class="mark">
+        <div class="media"><img src="./remu-logo-mark.svg" alt="ReMu mark"></div>
+        <figcaption>Symbol mark</figcaption>
+      </figure>
+      <figure class="dark">
+        <div class="media"><img src="./remu-logo-reverse.svg" alt="ReMu reverse logo"></div>
+        <figcaption>Reverse / premium packaging</figcaption>
+      </figure>
+    </section>
+    <section class="palette" aria-label="Brand colors">
+      <div class="swatch" style="background:#1f2421;color:#f8f5ef">Ink #1F2421</div>
+      <div class="swatch" style="background:#f8f5ef">Bone #F8F5EF</div>
+      <div class="swatch" style="background:#b9a37b">Gold #B9A37B</div>
+      <div class="swatch" style="background:#e7e0d4">Mist #E7E0D4</div>
+      <div class="swatch" style="background:#8c9388;color:#fff">Sage #8C9388</div>
+    </section>
+  </main>
+</body>
+</html>

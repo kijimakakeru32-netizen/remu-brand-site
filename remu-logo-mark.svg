@@ -1,0 +1,11 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ReMu brand mark</title>
+  <desc id="desc">An abstract circular mark representing reset, calm, and the removal of tension.</desc>
+  <rect width="1024" height="1024" rx="512" fill="#F8F5EF"/>
+  <circle cx="512" cy="512" r="368" stroke="#B9A37B" stroke-width="8"/>
+  <path d="M512 223C672 223 801 352 801 512C801 672 672 801 512 801C352 801 223 672 223 512C223 371 324 255 457 227" stroke="#1F2421" stroke-width="34" stroke-linecap="round"/>
+  <path d="M503 295C613 299 701 390 701 501C701 616 608 709 493 709C378 709 285 616 285 501C285 412 342 336 422 306" stroke="#1F2421" stroke-width="19" stroke-linecap="round"/>
+  <path d="M514 341C468 409 446 464 446 511C446 582 496 638 570 638C630 638 677 592 677 532C677 468 633 422 569 422H488" stroke="#B9A37B" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M512 223C512 223 546 292 608 325" stroke="#B9A37B" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="512" cy="512" r="18" fill="#B9A37B"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg width="1400" height="520" viewBox="0 0 1400 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ReMu wordmark</title>
+  <desc id="desc">An elegant ReMu wordmark with a discreet wellness tagline.</desc>
+  <rect width="1400" height="520" fill="transparent"/>
+  <text x="700" y="235" text-anchor="middle" fill="#1F2421" font-family="Cormorant Garamond, Didot, Bodoni 72, Georgia, serif" font-size="214" font-weight="400" letter-spacing="7">ReMu</text>
+  <line x1="456" y1="300" x2="944" y2="300" stroke="#B9A37B" stroke-width="2"/>
+  <text x="700" y="375" text-anchor="middle" fill="#4E514C" font-family="Avenir Next, Optima, Helvetica Neue, Arial, sans-serif" font-size="31" font-weight="400" letter-spacing="9">RESET MIND &amp; BODY</text>
+</svg>

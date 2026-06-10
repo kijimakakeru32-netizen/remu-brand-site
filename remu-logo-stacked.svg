@@ -1,0 +1,17 @@
+<svg width="1200" height="1400" viewBox="0 0 1200 1400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ReMu stacked logo</title>
+  <desc id="desc">A centered luxury wellness logo for ReMu with a circular reset mark above the wordmark.</desc>
+  <rect width="1200" height="1400" fill="#F8F5EF"/>
+  <g transform="translate(370 198)">
+    <circle cx="230" cy="230" r="196" stroke="#B9A37B" stroke-width="3"/>
+    <path d="M230 76C315 76 384 145 384 230C384 315 315 384 230 384C145 384 76 315 76 230C76 155 130 93 201 78" stroke="#1F2421" stroke-width="16" stroke-linecap="round"/>
+    <path d="M225 114C284 116 331 164 331 224C331 285 282 334 221 334C160 334 111 285 111 224C111 177 141 136 183 121" stroke="#1F2421" stroke-width="9" stroke-linecap="round"/>
+    <path d="M231 139C207 175 195 204 195 229C195 266 222 296 261 296C293 296 317 272 317 240C317 206 294 181 260 181H217" stroke="#B9A37B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M230 76C230 76 248 113 281 130" stroke="#B9A37B" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="230" cy="230" r="8" fill="#B9A37B"/>
+  </g>
+  <text x="600" y="790" text-anchor="middle" fill="#1F2421" font-family="Cormorant Garamond, Didot, Bodoni 72, Georgia, serif" font-size="214" font-weight="400" letter-spacing="6">ReMu</text>
+  <line x1="387" y1="846" x2="813" y2="846" stroke="#B9A37B" stroke-width="2"/>
+  <text x="600" y="914" text-anchor="middle" fill="#4E514C" font-family="Avenir Next, Optima, Helvetica Neue, Arial, sans-serif" font-size="29" font-weight="400" letter-spacing="8">RESET MIND &amp; BODY</text>
+  <text x="600" y="1018" text-anchor="middle" fill="#6D6D66" font-family="Avenir Next, Optima, Helvetica Neue, Arial, sans-serif" font-size="28" font-weight="300" letter-spacing="3">restore your natural recovery</text>
+</svg>
