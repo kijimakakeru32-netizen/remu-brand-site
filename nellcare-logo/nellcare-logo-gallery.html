@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NELLcare Logo Drafts</title>
+  <style>
+    :root {
+      --ink: #111411;
+      --paper: #f8f5ef;
+      --panel: rgba(255,255,255,.66);
+      --line: rgba(17,20,17,.12);
+      --soft: rgba(17,20,17,.58);
+      --blue: #7bb7cf;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 18% 12%, rgba(255,255,255,.9), transparent 28%), linear-gradient(135deg, #f8f5ef, #e9e1d5);
+      color: var(--ink);
+      font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    }
+    main { width: min(1320px, calc(100vw - 36px)); margin: 0 auto; padding: 42px 0 72px; }
+    header { display: grid; grid-template-columns: 1fr minmax(320px, 560px); gap: 28px; align-items: end; border-bottom: 1px solid var(--line); padding-bottom: 24px; margin-bottom: 24px; }
+    h1 { margin: 0; font-size: clamp(34px, 5vw, 72px); font-weight: 300; letter-spacing: .04em; }
+    .note { margin: 0; color: var(--soft); line-height: 1.8; letter-spacing: .06em; font-size: 14px; text-align: right; }
+    .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .card { min-height: 250px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: grid; grid-template-rows: auto 1fr auto; box-shadow: 0 24px 70px rgba(17,20,17,.07); }
+    .number { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding: 11px 14px; color: var(--soft); font-size: 12px; letter-spacing: .14em; }
+    .stage { min-height: 166px; display: grid; place-items: center; padding: 28px; text-align: center; }
+    .caption { min-height: 44px; border-top: 1px solid var(--line); padding: 11px 14px; color: var(--soft); font-size: 12px; letter-spacing: .08em; line-height: 1.55; }
+    .sub { display: block; margin-top: 14px; font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; font-size: 11px; font-weight: 400; letter-spacing: .22em; color: currentColor; text-transform: none; }
+    .mark { display: inline-grid; place-items: center; width: 58px; height: 58px; margin-right: 18px; border: 1.6px solid currentColor; border-radius: 999px; font-size: .42em; vertical-align: .22em; }
+    .v01 { font-family: "Didot", "Bodoni 72", "Baskerville", serif; font-size: 92px; font-weight: 300; letter-spacing: .04em; }
+    .v02 { font-family: "Optima", "Avenir Next", sans-serif; font-size: 88px; font-weight: 300; letter-spacing: .08em; }
+    .v03 { font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; font-size: 78px; font-weight: 200; letter-spacing: .08em; }
+    .v04 { font-family: "Gill Sans", "Avenir Next", sans-serif; font-size: 86px; font-weight: 300; letter-spacing: .06em; }
+    .v05 { font-family: "Futura", "Avenir Next", sans-serif; font-size: 80px; font-weight: 400; letter-spacing: .08em;}
+    .v06 { font-family: "Baskerville", Georgia, serif; font-size: 90px; font-style: italic; font-weight: 300; letter-spacing: .02em; }
+    .v07 { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 78px; font-weight: 200; letter-spacing: .04em; }
+    .v08 { font-family: "Avenir Next Condensed", "Helvetica Neue", Arial, sans-serif; font-size: 90px; font-weight: 300; letter-spacing: .04em; }
+    .v09 { font-family: "Hoefler Text", "Baskerville", serif; font-size: 88px; font-weight: 400; letter-spacing: .05em; }
+    .v10 { font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; font-size: 80px; font-weight: 500; letter-spacing: .02em; }
+    .v11 { font-family: "Didot", "Bodoni 72", "Baskerville", serif; font-size: 86px; font-weight: 300; letter-spacing: .08em; }
+    .v12 { font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif; font-size: 76px; font-weight: 200; letter-spacing: .1em; }
+    .v13 { font-family: "Optima", "Avenir Next", sans-serif; font-size: 82px; font-weight: 300; letter-spacing: .09em; }
+    .blue { color: var(--blue); }
+    .care-light { font-weight: 300; opacity: 1; }
+    .hyphen { opacity: .45; padding: 0 .08em; }
+    @media (max-width: 820px) {
+      header { grid-template-columns: 1fr; }
+      .note { text-align: left; }
+      .gallery { grid-template-columns: 1fr; }
+      .v01,.v02,.v04,.v06,.v09 { font-size: 62px; }
+      .v03,.v05,.v07,.v08,.v10 { font-size: 54px; }
+    }
+
+    .brand-section { margin-top: 54px; padding: 44px 28px 36px; border-top: 1px solid rgba(255,255,255,.18); background: #15243f; border-radius: 18px; color: #f7f2e8; box-shadow: 0 28px 80px rgba(21,36,63,.26); }
+    .brand-heading { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 22px; }
+    .brand-heading h2 { margin: 0; font-size: clamp(30px, 4vw, 56px); font-weight: 300; letter-spacing: .05em; }
+    .brand-section .note { color: rgba(247,242,232,.72); }
+    .brand-section .card { background: rgba(255,255,255,.92); border-color: rgba(255,255,255,.2); color: var(--ink); box-shadow: 0 24px 70px rgba(0,0,0,.16); }
+    .brand-section .number,
+    .brand-section .caption { color: rgba(17,20,17,.58); border-color: rgba(17,20,17,.1); }
+    .dot { display:inline-block; width:.12em; height:.12em; margin:0 .14em; border-radius:50%; background:currentColor; vertical-align:.18em; }
+    .bar { display:block; width:70%; height:1px; background:currentColor; margin:18px auto 0; opacity:.45; }
+    .split span:nth-child(2){ font-weight:200; opacity:.78; }
+    .nrv01{font-family:"Didot","Bodoni 72","Baskerville",serif;font-size:86px;font-weight:300;letter-spacing:.06em;}
+    .nrv02{font-family:"Optima","Avenir Next",sans-serif;font-size:84px;font-weight:300;letter-spacing:.11em;}
+    .nrv03{font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;font-size:76px;font-weight:200;letter-spacing:.09em;}
+    .nrv04{font-family:"Gill Sans","Avenir Next",sans-serif;font-size:84px;font-weight:300;letter-spacing:.09em;}
+    .nrv05{font-family:"Futura","Avenir Next",sans-serif;font-size:76px;font-weight:400;letter-spacing:.12em;text-transform:lowercase;}
+    .nrv06{font-family:"Baskerville",Georgia,serif;font-size:88px;font-style:italic;font-weight:300;letter-spacing:.05em;}
+    .nrv07{font-family:"Helvetica Neue",Arial,sans-serif;font-size:76px;font-weight:200;letter-spacing:.14em;}
+    .nrv08{font-family:"Avenir Next Condensed","Helvetica Neue",Arial,sans-serif;font-size:92px;font-weight:300;letter-spacing:.08em;}
+    .nrv09{font-family:"Hoefler Text","Baskerville",serif;font-size:84px;font-weight:400;letter-spacing:.12em;}
+    .nrv10{font-family:"Avenir Next","Helvetica Neue",Arial,sans-serif;font-size:78px;font-weight:500;letter-spacing:.08em;}
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>NELLcare</h1>
+      <p class="note">枕・睡眠サポート・ウェルネス商材に展開しやすい、上質で清潔感のあるロゴ案。表記は NELLcare / NELL-care / nell-care を混ぜて比較します。</p>
+    </header>
+
+    <section class="gallery" aria-label="NELLcare logo drafts">
+      <article class="card"><div class="number"><span>01</span><span>quiet serif</span></div><div class="stage"><div class="v01">NELLCARE</div></div><div class="caption">高級感重視。Pillowやサロン専売ラインに合う。</div></article>
+      <article class="card"><div class="number"><span>02</span><span>spa minimal</span></div><div class="stage"><div class="v02">NELL<span class="care-light">care</span><span class="sub">sleep wellness</span></div></div><div class="caption">清潔で読みやすい。前回04系に近い採用しやすい方向。</div></article>
+      <article class="card"><div class="number"><span>03</span><span>modern thin</span></div><div class="stage"><div class="v03">Nellcare</div></div><div class="caption">ミニマルな物販向け。箱やボトル印字で扱いやすい。</div></article>
+      <article class="card"><div class="number"><span>05</span><span>alo mood</span></div><div class="stage"><div class="v05">Nellcare</div></div><div class="caption">スタイリッシュで軽い。若い女性向け・SNS向き。</div></article>
+      <article class="card"><div class="number"><span>07</span><span>blue clean</span></div><div class="stage"><div class="v07">NELLcare<span class="sub">deep sleep support</span></div></div><div class="caption">水色展開案。サプリや睡眠系商品に合わせやすい。</div></article>
+      <article class="card"><div class="number"><span>09</span><span>premium classic</span></div><div class="stage"><div class="v09">NELLcare</div></div><div class="caption">ややクラシック。高単価寝具やギフト箱向け。</div></article>
+      <article class="card"><div class="number"><span>10</span><span>active care</span></div><div class="stage"><div class="v10">NELLCARE</div></div><div class="caption">機能性・信頼感寄り。サプリや姿勢ケアにも広げやすい。</div></article>
+      <article class="card"><div class="number"><span>12</span><span>uppercase minimal</span></div><div class="stage"><div class="v12">NELLCARE<span class="sub">sleep wellness</span></div></div><div class="caption">全大文字のミニマル案。現代的でクリーン。</div></article>
+      <article class="card"><div class="number"><span>13</span><span>uppercase spa</span></div><div class="stage"><div class="v13">NELLCARE</div></div><div class="caption">全大文字でも柔らかめ。ウェルネス商材に展開しやすい。</div></article>
+    </section>
+
+    <section class="brand-section" aria-label="NEREUKE logo drafts section">
+      <div class="brand-heading">
+        <h2>NEREUKE</h2>
+        <p class="note">NELLCAREとは別候補として、睡眠・回復・ウェルネス領域を想定した10パターンです。</p>
+      </div>
+      <section class="gallery" aria-label="NEREUKE logo drafts">
+      <article class="card"><div class="number"><span>01</span><span>luxury serif</span></div><div class="stage"><div class="nrv01">NEREUKE</div></div><div class="caption">高級感重視。寝具・ギフト箱に映える案。</div></article>
+      <article class="card"><div class="number"><span>02</span><span>spa minimal</span></div><div class="stage"><div class="nrv02">NEREUKE<span class="sub">sleep wellness</span></div></div><div class="caption">清潔で上品。Pillowやサプリにも展開しやすい。</div></article>
+      <article class="card"><div class="number"><span>03</span><span>thin modern</span></div><div class="stage"><div class="nrv03">NEREUKE</div></div><div class="caption">細く軽いミニマル案。白パッケージに合う。</div></article>
+      <article class="card"><div class="number"><span>07</span><span>aqua sleep</span></div><div class="stage"><div class="nrv07 aqua">NEREUKE<span class="sub">deep sleep support</span></div></div><div class="caption">水色展開。睡眠サプリや清涼感のある商品向け。</div></article>
+      <article class="card"><div class="number"><span>09</span><span>premium spaced</span></div><div class="stage"><div class="nrv09">NEREUKE</div></div><div class="caption">クラシックで落ち着いた大文字案。高単価ラインにも合わせやすい。</div></article>
+      <article class="card"><div class="number"><span>10</span><span>active wellness</span></div><div class="stage"><div class="nrv10">NEREUKE</div></div><div class="caption">機能性・信頼感寄り。サプリや姿勢ケアにも展開可能。</div></article>
+      <article class="card"><div class="number"><span>11</span><span>nellcare 10 style</span></div><div class="stage"><div class="v10">NEREUKE</div></div><div class="caption">NELLCAREの10と同じフォント感で作成したNEREUKE案。</div></article>
+    </section>
+    </section>
+  </main>
+</body>
+</html>
